@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means - ML Viz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon"></div>
+                <h1>ML Viz</h1>
+            </a>
+            <div class="nav-section-label">Regression</div>
+            <ul class="nav-links">
+                <li><a href="linear.html"><span class="icon">📈</span> Linear Regression</a></li>
+            </ul>
+            <div class="nav-section-label">Classification</div>
+            <ul class="nav-links">
+                <li><a href="logistic.html"><span class="icon">⚖️</span> Logistic Regression</a></li>
+                <li><a href="knn.html"><span class="icon">📍</span> KNN</a></li>
+                <li><a href="svm.html"><span class="icon">⚔️</span> SVM</a></li>
+                <li><a href="decision_tree.html"><span class="icon">🌲</span> Decision Trees</a></li>
+                <li><a href="random_forest.html"><span class="icon">🌳</span> Random Forest</a></li>
+            </ul>
+            <div class="nav-section-label">Unsupervised</div>
+            <ul class="nav-links">
+                <li><a href="kmeans.html" class="active"><span class="icon">🎯</span> K-Means</a></li>
+                <li><a href="pca.html"><span class="icon">📉</span> PCA</a></li>
+            </ul>
+            <div class="nav-section-label">Deep Learning</div>
+            <ul class="nav-links">
+                <li><a href="neural_net.html"><span class="icon">🧠</span> Neural Networks</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <header class="top-bar">
+                <h2>K-Means Clustering</h2>
+                <div class="controls">
+                    <button id="regen-data-btn" class="btn secondary">Regenerate Data</button>
+                </div>
+            </header>
+
+            <div class="visualization-container">
+                <div class="canvas-wrapper">
+                    <canvas id="main-canvas"></canvas>
+                    <div class="overlay-instruction">Click to add points.</div>
+                </div>
+
+                <aside class="stats-panel">
+                    <div class="card">
+                        <h3>Algorithm Status</h3>
+                        <div class="stat-row">
+                            <span class="label">Iteration</span>
+                            <span class="value" id="iter-display">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Inertia (Cost)</span>
+                            <span class="value" id="inertia-display">0.00</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button id="step-btn" class="btn" style="flex: 1;">Step</button>
+                            <button id="run-btn" class="btn secondary" style="flex: 1;">Run All</button>
+                        </div>
+                        <button id="reset-centroids-btn" class="btn secondary"
+                            style="width: 100%; margin-top: 0.5rem;">Randomize Centroids</button>
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Settings</h3>
+                        <div class="stat-row">
+                            <span class="label">Clusters (K)</span>
+                            <span class="value" id="k-display">3</span>
+                        </div>
+                        <input type="range" id="k-slider" min="2" max="8" value="3">
+
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Data Shape</span>
+                        </div>
+                        <select id="shape-select" class="btn secondary" style="width: 100%; text-align: left;">
+                            <option value="blobs">Blobs</option>
+                            <option value="circles">Concentric Circles</option>
+                            <option value="moons">Moons</option>
+                            <option value="random">Random</option>
+                        </select>
+                    </div>
+
+                    <div class="card">
+                        <h3>Elbow Method</h3>
+                        <div style="height: 100px; display: flex; align-items: flex-end; gap: 4px; padding-top: 10px;">
+                            <!-- Simple bar chart for elbow method -->
+                            <div id="elbow-chart"
+                                style="display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 2px;">
+                            </div>
+                        </div>
+                        <button id="calc-elbow-btn" class="btn secondary"
+                            style="width: 100%; margin-top: 0.5rem; font-size: 0.8rem;">Calculate Elbow</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/kmeans.js"></script>
+</body>
+
+</html>

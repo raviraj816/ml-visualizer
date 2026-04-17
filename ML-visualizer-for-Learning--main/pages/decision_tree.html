@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Tree - ML Viz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon"></div>
+                <h1>ML Viz</h1>
+            </a>
+            <div class="nav-section-label">Regression</div>
+            <ul class="nav-links">
+                <li><a href="linear.html"><span class="icon">📈</span> Linear Regression</a></li>
+            </ul>
+            <div class="nav-section-label">Classification</div>
+            <ul class="nav-links">
+                <li><a href="logistic.html"><span class="icon">⚖️</span> Logistic Regression</a></li>
+                <li><a href="knn.html"><span class="icon">📍</span> KNN</a></li>
+                <li><a href="svm.html"><span class="icon">⚔️</span> SVM</a></li>
+                <li><a href="decision_tree.html" class="active"><span class="icon">🌲</span> Decision Trees</a></li>
+                <li><a href="random_forest.html"><span class="icon">🌳</span> Random Forest</a></li>
+            </ul>
+            <div class="nav-section-label">Unsupervised</div>
+            <ul class="nav-links">
+                <li><a href="kmeans.html"><span class="icon">🎯</span> K-Means</a></li>
+                <li><a href="pca.html"><span class="icon">📉</span> PCA</a></li>
+            </ul>
+            <div class="nav-section-label">Deep Learning</div>
+            <ul class="nav-links">
+                <li><a href="neural_net.html"><span class="icon">🧠</span> Neural Networks</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <header class="top-bar">
+                <h2>Decision Tree</h2>
+                <div class="controls">
+                    <button id="regen-data-btn" class="btn secondary">Regenerate Data</button>
+                </div>
+            </header>
+
+            <div class="visualization-container">
+                <div class="canvas-wrapper">
+                    <canvas id="main-canvas"></canvas>
+                    <div class="overlay-instruction">Click to add points. Toggle class below.</div>
+                </div>
+
+                <aside class="stats-panel">
+                    <div class="card">
+                        <h3>Model Performance</h3>
+                        <div class="stat-row">
+                            <span class="label">Train Accuracy</span>
+                            <span class="value" id="acc-display">0%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Tree Depth</span>
+                            <span class="value" id="depth-stat">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Nodes</span>
+                            <span class="value" id="nodes-stat">0</span>
+                        </div>
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Hyperparameters</h3>
+                        <div class="stat-row">
+                            <span class="label">Max Depth</span>
+                            <span class="value" id="depth-display">5</span>
+                        </div>
+                        <input type="range" id="depth-slider" min="1" max="10" value="5">
+
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Min Samples Split</span>
+                            <span class="value" id="split-display">2</span>
+                        </div>
+                        <input type="range" id="split-slider" min="2" max="20" value="2">
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Data Controls</h3>
+                        <div class="class-selector">
+                            <button class="btn class-btn active" data-class="0" style="--btn-color: #ef4444;">Class 0
+                                (Red)</button>
+                            <button class="btn class-btn" data-class="1" style="--btn-color: #3b82f6;">Class 1
+                                (Blue)</button>
+                        </div>
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Noise</span>
+                            <span class="value" id="noise-display">0.1</span>
+                        </div>
+                        <input type="range" id="noise-slider" min="0" max="0.5" step="0.05" value="0.1">
+                    </div>
+
+                    <div class="card" style="flex: 1; overflow: hidden; display: flex; flex-direction: column;">
+                        <h3>Tree Structure</h3>
+                        <div id="tree-viz"
+                            style="flex: 1; overflow: auto; font-size: 0.7rem; font-family: monospace; white-space: pre; color: var(--text-secondary);">
+                            (Tree visualization will appear here)
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/decision_tree.js"></script>
+</body>
+
+</html>

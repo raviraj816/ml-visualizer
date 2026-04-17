@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Visualizer - Interactive Learning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="home-container">
+        <div class="hero-section">
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-icon" style="width: 48px; height: 48px;"></div>
+            </div>
+            <h1>Machine Learning Visualizer</h1>
+            <p>Interactive playground to understand algorithms, tune hyperparameters, and visualize decision boundaries
+                in real-time.</p>
+        </div>
+
+        <div class="algo-grid">
+            <!-- Supervised: Regression -->
+            <a href="pages/linear.html" class="algo-card">
+                <div class="card-icon">📈</div>
+                <div class="card-content">
+                    <h3>Linear Regression</h3>
+                    <p>Understand fitting, residuals, and the bias-variance tradeoff with polynomial degrees.</p>
+                    <span class="tag">Regression</span>
+                </div>
+            </a>
+
+            <!-- Supervised: Classification -->
+            <a href="pages/logistic.html" class="algo-card">
+                <div class="card-icon">⚖️</div>
+                <div class="card-content">
+                    <h3>Logistic Regression</h3>
+                    <p>Visualize sigmoid decision boundaries, thresholds, and binary classification metrics.</p>
+                    <span class="tag">Classification</span>
+                </div>
+            </a>
+
+            <a href="pages/knn.html" class="algo-card">
+                <div class="card-icon">📍</div>
+                <div class="card-content">
+                    <h3>K-Nearest Neighbors</h3>
+                    <p>See how 'K' affects decision regions and the balance between overfitting and underfitting.</p>
+                    <span class="tag">Classification</span>
+                </div>
+            </a>
+
+            <a href="pages/svm.html" class="algo-card">
+                <div class="card-icon">⚔️</div>
+                <div class="card-content">
+                    <h3>Support Vector Machines</h3>
+                    <p>Explore kernels (RBF, Poly), margins, and support vectors.</p>
+                    <span class="tag">Classification</span>
+                </div>
+            </a>
+
+            <a href="pages/decision_tree.html" class="algo-card">
+                <div class="card-icon">🌲</div>
+                <div class="card-content">
+                    <h3>Decision Trees</h3>
+                    <p>Visualize recursive splitting and tree depth pruning.</p>
+                    <span class="tag">Classification</span>
+                </div>
+            </a>
+
+            <a href="pages/random_forest.html" class="algo-card">
+                <div class="card-icon">🌳</div>
+                <div class="card-content">
+                    <h3>Random Forest</h3>
+                    <p>Ensemble learning with bagging and feature randomness.</p>
+                    <span class="tag">Ensemble</span>
+                </div>
+            </a>
+
+            <!-- Unsupervised -->
+            <a href="pages/kmeans.html" class="algo-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-content">
+                    <h3>K-Means Clustering</h3>
+                    <p>Watch centroids converge step-by-step and analyze the elbow method.</p>
+                    <span class="tag">Clustering</span>
+                </div>
+            </a>
+
+            <a href="pages/pca.html" class="algo-card">
+                <div class="card-icon">📉</div>
+                <div class="card-content">
+                    <h3>PCA</h3>
+                    <p>Dimensionality reduction visualization from 3D to 2D/1D.</p>
+                    <span class="tag">Dim. Reduction</span>
+                </div>
+            </a>
+
+            <!-- Deep Learning -->
+            <a href="pages/neural_net.html" class="algo-card">
+                <div class="card-icon">🧠</div>
+                <div class="card-content">
+                    <h3>Neural Networks</h3>
+                    <p>Train a simple MLP and watch the loss curve and decision boundary evolve.</p>
+                    <span class="tag">Deep Learning</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

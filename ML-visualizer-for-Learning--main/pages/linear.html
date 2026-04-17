@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression - ML Viz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon"></div>
+                <h1>ML Viz</h1>
+            </a>
+            <div class="nav-section-label">Regression</div>
+            <ul class="nav-links">
+                <li><a href="linear.html" class="active"><span class="icon">📈</span> Linear Regression</a></li>
+            </ul>
+            <div class="nav-section-label">Classification</div>
+            <ul class="nav-links">
+                <li><a href="logistic.html"><span class="icon">⚖️</span> Logistic Regression</a></li>
+                <li><a href="knn.html"><span class="icon">📍</span> KNN</a></li>
+                <li><a href="svm.html"><span class="icon">⚔️</span> SVM</a></li>
+                <li><a href="decision_tree.html"><span class="icon">🌲</span> Decision Trees</a></li>
+                <li><a href="random_forest.html"><span class="icon">🌳</span> Random Forest</a></li>
+            </ul>
+            <div class="nav-section-label">Unsupervised</div>
+            <ul class="nav-links">
+                <li><a href="kmeans.html"><span class="icon">🎯</span> K-Means</a></li>
+                <li><a href="pca.html"><span class="icon">📉</span> PCA</a></li>
+            </ul>
+            <div class="nav-section-label">Deep Learning</div>
+            <ul class="nav-links">
+                <li><a href="neural_net.html"><span class="icon">🧠</span> Neural Networks</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <header class="top-bar">
+                <h2>Linear Regression</h2>
+                <div class="controls">
+                    <button id="regen-data-btn" class="btn secondary">Regenerate Data</button>
+                </div>
+            </header>
+
+            <div class="visualization-container">
+                <div class="canvas-wrapper">
+                    <canvas id="main-canvas"></canvas>
+                    <div class="overlay-instruction">Click to add points. Drag to move.</div>
+                </div>
+
+                <aside class="stats-panel">
+                    <div class="card">
+                        <h3>Model Performance</h3>
+                        <div class="stat-row">
+                            <span class="label">MSE (Train)</span>
+                            <span class="value" id="mse-train">0.00</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">MSE (Test)</span>
+                            <span class="value" id="mse-test">0.00</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Equation</span>
+                            <span class="value small" id="equation-value">y = 0x + 0</span>
+                        </div>
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Model Complexity</h3>
+                        <div class="stat-row">
+                            <span class="label">Degree</span>
+                            <span class="value" id="degree-display">1</span>
+                        </div>
+                        <input type="range" id="degree-slider" min="1" max="12" value="1">
+                        <p class="hint">Higher degree = more complex model (risk of overfitting).</p>
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Regularization (L2 / Ridge)</h3>
+                        <div class="stat-row">
+                            <span class="label">Lambda</span>
+                            <span class="value" id="lambda-display">0.00</span>
+                        </div>
+                        <input type="range" id="lambda-slider" min="0" max="1" step="0.01" value="0">
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Data Settings</h3>
+                        <div class="stat-row">
+                            <span class="label">Noise Level</span>
+                            <span class="value" id="noise-display">0.2</span>
+                        </div>
+                        <input type="range" id="noise-slider" min="0" max="1" step="0.05" value="0.2">
+
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Train/Test Split</span>
+                            <span class="value" id="split-display">80%</span>
+                        </div>
+                        <input type="range" id="split-slider" min="10" max="90" step="10" value="80">
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/linear.js"></script>
+</body>
+
+</html>

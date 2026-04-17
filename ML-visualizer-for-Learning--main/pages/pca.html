@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCA - ML Viz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon"></div>
+                <h1>ML Viz</h1>
+            </a>
+            <div class="nav-section-label">Regression</div>
+            <ul class="nav-links">
+                <li><a href="linear.html"><span class="icon">📈</span> Linear Regression</a></li>
+            </ul>
+            <div class="nav-section-label">Classification</div>
+            <ul class="nav-links">
+                <li><a href="logistic.html"><span class="icon">⚖️</span> Logistic Regression</a></li>
+                <li><a href="knn.html"><span class="icon">📍</span> KNN</a></li>
+                <li><a href="svm.html"><span class="icon">⚔️</span> SVM</a></li>
+                <li><a href="decision_tree.html"><span class="icon">🌲</span> Decision Trees</a></li>
+                <li><a href="random_forest.html"><span class="icon">🌳</span> Random Forest</a></li>
+            </ul>
+            <div class="nav-section-label">Unsupervised</div>
+            <ul class="nav-links">
+                <li><a href="kmeans.html"><span class="icon">🎯</span> K-Means</a></li>
+                <li><a href="pca.html" class="active"><span class="icon">📉</span> PCA</a></li>
+            </ul>
+            <div class="nav-section-label">Deep Learning</div>
+            <ul class="nav-links">
+                <li><a href="neural_net.html"><span class="icon">🧠</span> Neural Networks</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <header class="top-bar">
+                <h2>Principal Component Analysis</h2>
+                <div class="controls">
+                    <button id="regen-data-btn" class="btn secondary">Regenerate Data</button>
+                </div>
+            </header>
+
+            <div class="visualization-container">
+                <div class="canvas-wrapper">
+                    <canvas id="main-canvas"></canvas>
+                    <div class="overlay-instruction">Drag to rotate (3D mode).</div>
+                </div>
+
+                <aside class="stats-panel">
+                    <div class="card">
+                        <h3>Explained Variance</h3>
+                        <div class="stat-row">
+                            <span class="label">PC1</span>
+                            <span class="value" id="var-pc1">0%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">PC2</span>
+                            <span class="value" id="var-pc2">0%</span>
+                        </div>
+                        <div
+                            style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-top: 10px; overflow: hidden; display: flex;">
+                            <div id="bar-pc1" style="background: var(--accent-color); width: 0%;"></div>
+                            <div id="bar-pc2" style="background: #22c55e; width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card control-card">
+                        <h3>Settings</h3>
+                        <div class="stat-row">
+                            <span class="label">Dimensions</span>
+                        </div>
+                        <select id="dim-select" class="btn secondary" style="width: 100%; text-align: left;">
+                            <option value="2d">2D Data (Project to 1D)</option>
+                            <option value="3d">3D Data (Project to 2D)</option>
+                        </select>
+
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Samples</span>
+                            <span class="value" id="n-display">50</span>
+                        </div>
+                        <input type="range" id="n-slider" min="10" max="100" value="50">
+
+                        <div class="stat-row" style="margin-top: 1rem;">
+                            <span class="label">Correlation / Spread</span>
+                            <span class="value" id="spread-display">0.8</span>
+                        </div>
+                        <input type="range" id="spread-slider" min="0" max="1" step="0.1" value="0.8">
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/pca.js"></script>
+</body>
+
+</html>
